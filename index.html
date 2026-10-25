@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>OBSCURA | The Ultimate Cipher Lab</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <h1>OBSCURA</h1>
+    <p class="tagline">Nothing is as it seems.</p>
+  </header>
+
+  <main>
+    <section class="landing-info">
+      <p>A multi-layered cryptographic laboratory. Chain ciphers, encodings, and modern encryption standards.</p>
+    </section>
+
+    <section class="presets-section">
+      <label for="presetSelect">Load Preset:</label>
+      <select id="presetSelect">
+        <option value="">-- Custom --</option>
+        <option value="obscura5">OBSCURA-5</option>
+        <option value="classic">Classic Stack</option>
+        <option value="digital">Digital Veil</option>
+        <option value="transposition">Transposition Lab</option>
+        <option value="secure">Secure Mode (AES-GCM)</option>
+      </select>
+    </section>
+
+    <div class="lab-grid">
+      <section class="panel input-panel">
+        <h2>Input</h2>
+        <textarea id="inputText" placeholder="Enter plaintext or ciphertext here..."></textarea>
+      </section>
+
+      <section class="panel pipeline-panel">
+        <h2>Pipeline Editor</h2>
+        <div id="pipelineContainer" class="pipeline-container"></div>
+        <div class="add-layer-controls">
+          <select id="algoSelect"></select>
+          <button id="addLayerBtn" class="action">Add Layer</button>
+        </div>
+      </section>
+
+      <section class="panel output-panel">
+        <h2>Output</h2>
+        <textarea id="outputText" readonly placeholder="Result will appear here..."></textarea>
+        <div class="controls">
+          <button id="encryptBtn" class="action peach">Encrypt (Top to Bottom)</button>
+          <button id="decryptBtn" class="action blue">Decrypt (Bottom to Top)</button>
+        </div>
+        <button class="copy" id="copyBtn">Copy Result</button>
+        <div class="notice" id="statusNote"></div>
+      </section>
+    </div>
+
+    <section class="info panel">
+      <h3>Cipher Explorer & Security Notes</h3>
+      <p><strong>Classic Ciphers & Encodings:</strong> Algorithms like Caesar, Vigenère, Base64, and Hexadecimal do not provide actual security and can be easily broken. They are intended for puzzles and learning.</p>
+      <p><strong>Modern Encryption:</strong> Use the <strong>AES-GCM</strong> layer with a strong password to securely encrypt data. Our implementation derives a secure key using PBKDF2 with a random salt, and encrypts using AES-GCM with a random initialization vector. The salt and IV are automatically prepended to the ciphertext.</p>
+    </section>
+  </main>
+
+  <footer>
+    OBSCURA Cipher Lab · Runs entirely in your browser.
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
